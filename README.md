@@ -98,7 +98,7 @@ Arena 456/
 
 ---
 
-📸 Screenshots
+ Screenshots
 
 - **Character Showcase** 
 ![characters-trailer](screenshots/characters-trailer.png)
