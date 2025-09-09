@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squid Game Quiz</title>
+    <style>
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            
+        }
+
+        @font-face {
+            font-family: 'GameofSquids';
+            src: url('fonts/GameOfSquids.ttf') format('truetype'); /* Adjust path if needed */
+        }
+        .quiz-header {
+            font-family: 'GameofSquids', sans-serif;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 5px white;
+            color: white; 
+            padding: 15px;
+            width: 100%;
+            background-color: black;
+            box-shadow: 0 0 10px white, 0 0 10px white ;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .quiz-header h1 {
+            margin: 0;
+            padding: 10px;
+        }
+
+
+        .quiz-container {
+            display: grid;
+            padding: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .quiz-card {
+            background-color: black;
+            border: 3px solid #ff007f; /* Neon Pink Border */
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ff007f, 0 0 10px #ff007f; /* Neon Glow Effect */
+            padding: 40px;
+            margin-top: 20px;
+            width: 300px;
+            text-align: left;
+            transition: 0.3s ease-in-out;
+        }
+
+        .quiz-card:hover {
+            box-shadow: 0 0 15px #ff007f, 0 0 30px #ff007f; /* Brighter glow on hover */
+        }
+
+        h2 {
+            font-family: 'GameofSquids', sans-serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color:#ff007f; 
+            text-align: center;
+        }
+
+
+
+        .quiz-card .question {
+            margin-bottom: 15px;
+            font-size: 18px;
+            height: 50px;
+            text-align: left;
+        }
+
+        .quiz-card .options {
+            list-style: none;
+            padding: 0;
+
+        }
+
+        .quiz-card .options li {
+            margin-bottom: 10px;
+        }
+
+        .quiz-card .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #ff007f; /* Neon Pink Radio Button */
+        }
+
+        .next-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: #ff007f;
+            font-family: 'Space Mono', monospace;
+            text-align: center;
+            border: 2px solid #ff007f;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f;
+            transition: 0.3s;
+        }
+
+        .next-button:hover {
+            background-color: #ff007f;
+            color: black;
+            box-shadow: 0 0 10px #ff007f, 0 0 10px #ff007f;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <header class="quiz-header">
+        <h1>Squid Game Quiz</h1>
+    </header>
+
+
+    <div class="quiz-container">
+        <!-- Quiz Card 1 -->
+        <div class="quiz-card">
+            <h2>001</h2>
+            <p class="question">What is the total prize money offered in the Squid Game competition?</p>
+            <ul class="options" id="question1">
+                <li><input type="radio" name="question1" value="45.6 million won">45.6 million won</li>
+                <li><input type="radio" name="question1" value="4.56 billion won">4.56 billion won</li>
+                <li><input type="radio" name="question1" value="45.6 billion won">45.6 billion won</li>
+                <li><input type="radio" name="question1" value="456 billion won">456 billion won</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 2 -->
+        <div class="quiz-card">
+            <h2>002</h2>
+            <p class="question">What was the very first game played by the participants?</p>
+            <ul class="options" id="question2">
+                <li><input type="radio" name="question2" value="Tug of War">Tug of War</li>
+                <li><input type="radio" name="question2" value="Red Light, Green Light">Red Light, Green Light</li>
+                <li><input type="radio" name="question2" value="Honeycomb Challenge">Honeycomb Challenge</li>
+                <li><input type="radio" name="question2" value="Marbles">Marbles</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 3 -->
+        <div class="quiz-card">
+            <h2>003</h2>
+            <p class="question">Which character is known as Player 456?</p>
+            <ul class="options" id="question3">
+                <li><input type="radio" name="question3" value="Kang Sae-byeok">Kang Sae-byeok</li>
+                <li><input type="radio" name="question3" value="Seong Gi-hun">Seong Gi-hun</li>
+                <li><input type="radio" name="question3" value="Cho Sang-woo">Cho Sang-woo</li>
+                <li><input type="radio" name="question3" value="Oh Il-nam">Oh Il-nam</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 4 -->
+        <div class="quiz-card">
+            <h2>004</h2>
+            <p class="question">What is the main symbol featured on the guards' masks?</p>
+            <ul class="options" id="question4">
+                <li><input type="radio" name="question4" value="Circle, Triangle, and Square">Circle, Triangle, and Square</li>
+                <li><input type="radio" name="question4" value="Star and Circle">Star and Circle</li>
+                <li><input type="radio" name="question4" value="Triangle and Diamond">Triangle and Diamond</li>
+                <li><input type="radio" name="question4" value="Square and Hexagon">Square and Hexagon</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 5 -->
+        <div class="quiz-card">
+            <h2>005</h2>
+            <p class="question">Which character betrays others the most to ensure their survival?</p>
+            <ul class="options" id="question5">
+                <li><input type="radio" name="question5" value="Seong Gi-hun">Seong Gi-hun</li>
+                <li><input type="radio" name="question5" value="Oh Il-nam">Oh Il-nam</li>
+                <li><input type="radio" name="question5" value="Cho Sang-woo">Cho Sang-woo</li>
+                <li><input type="radio" name="question5" value="Kang Sae-byeok">Kang Sae-byeok</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 6 -->
+        <div class="quiz-card">
+            <h2>006</h2>
+            <p class="question">What shape does Seong Gi-hun choose for the Honeycomb Challenge?</p>
+            <ul class="options" id="question6">
+                <li><input type="radio" name="question6" value="Triangle">Triangle</li>
+                <li><input type="radio" name="question6" value="Circle">Circle</li>
+                <li><input type="radio" name="question6" value="Star">Star</li>
+                <li><input type="radio" name="question6" value="Umbrella">Umbrella</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 7 -->
+        <div class="quiz-card">
+            <h2>007</h2>
+            <p class="question">What song plays from the creepy doll in "Red Light, Green Light"?</p>
+            <ul class="options" id="question7">
+                <li><input type="radio" name="question7" value="Twinkle, Twinkle Little Star">Twinkle, Twinkle Little Star</li>
+                <li><input type="radio" name="question7" value="Old MacDonald Had a Farm">Old MacDonald Had a Farm</li>
+                <li><input type="radio" name="question7" value="Mugunghwa Flower Has Bloomed">Mugunghwa Flower Has Bloomed</li>
+                <li><input type="radio" name="question7" value="Mary Had a Little Lamb">Mary Had a Little Lamb</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 8 -->
+        <div class="quiz-card">
+            <h2>008</h2>
+            <p class="question">What is the color of the tracksuits worn by the players?</p>
+            <ul class="options" id="question8">
+                <li><input type="radio" name="question8" value="Blue">Blue</li>
+                <li><input type="radio" name="question8" value="Green">Green</li>
+                <li><input type="radio" name="question8" value="Red">Red</li>
+                <li><input type="radio" name="question8" value="Yellow">Yellow</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Card 9 -->
+        <div class="quiz-card">
+            <h2>009</h2>
+            <p class="question">What shocking twist is revealed about Player 001, Oh Il-nam?</p>
+            <ul class="options" id="question9">
+                <li><input type="radio" name="question9" value="He is Gi-hun's father">He is Gi-hun's father</li>
+                <li><input type="radio" name="question9" value="He is secretly controlling the games">He is secretly controlling the games</li>
+                <li><input type="radio" name="question9" value="He is a former Squid Game winner">He is a former Squid Game winner</li>
+                <li><input type="radio" name="question9" value="He fakes his death to escape">He fakes his death to escape</li>
+            </ul>
+        </div>
+
+
+
+        <button class="next-button" onclick="submitQuiz()">Submit</button>
+    </div>
+
+    <div id="result" style="display:none; color: white; text-align: center; padding: 20px;">
+        <h2>Quiz Results</h2>
+        <div id="answers"></div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            question1: "456 billion won",  
+            question2: "Red Light, Green Light", 
+            question3: "Seong Gi-hun", 
+            question4: "Circle, Triangle, and Square", 
+            question5: "Cho Sang-woo", 
+            question6: "Umbrella",
+            question7: "Mugunghwa Flower Has Bloomed", 
+            question8: "Green", 
+            question9: "He is secretly controlling the games" 
+        };
+
+        function submitQuiz() {
+            let results = '';
+            let score = 0;
+
+            for (let i = 1; i <= 9; i++) {
+                const selectedOption = document.querySelector(`input[name="question${i}"]:checked`);
+                const questionId = `question${i}`;
+
+                if (selectedOption) {
+                    const userAnswer = selectedOption.value;
+                    const correctAnswer = correctAnswers[questionId];
+
+                
+                    if (userAnswer === correctAnswer) {
+                        results += `<p><strong>Question ${i}:</strong> ${userAnswer} <span style="color: green;">(Correct)</span></p>`;
+                        score++;  
+                    } else {
+                        results += `<p><strong>Question ${i}:</strong> ${userAnswer} <span style="color: red;">(Incorrect)</span></p>`;
+                    }
+                } else {
+                    results += `<p><strong>Question ${i}:</strong> No answer selected</p>`;
+                }
+            }
+
+            results += `<h3>Your Score: ${score} / 9</h3>`;
+            document.getElementById('answers').innerHTML = results;
+            document.querySelector('.quiz-container').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+    </div>
+</body>
+</html>
